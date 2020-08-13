@@ -17027,8 +17027,8 @@
           "name": "Title",
           "persistentUuid": "8b25ab84-9984-4fca-9622-0aaa9fa8021b",
           "width": 330,
-          "x": 62,
-          "y": 56,
+          "x": 219,
+          "y": 60,
           "zOrder": 2,
           "numberProperties": [],
           "stringProperties": [],
@@ -17062,6 +17062,22 @@
           "x": 116,
           "y": 527,
           "zOrder": 5,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "height": 255,
+          "layer": "",
+          "locked": false,
+          "name": "Text",
+          "persistentUuid": "9692008b-2079-4d49-9a62-1c2e2c8e0549",
+          "width": 701,
+          "x": 52,
+          "y": 209,
+          "zOrder": 6,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
@@ -17116,11 +17132,11 @@
           "content": {
             "text": "[b][shadow=red][outline=yellow]Electricity[/outline][/shadow][/b]",
             "opacity": 255,
-            "fontSize": 70,
+            "fontSize": 80,
             "visible": true,
             "color": "#f0b557",
             "fontFamily": "Quicksand-Medium.ttf",
-            "align": "left",
+            "align": "center",
             "wordWrap": true
           }
         },
@@ -17196,6 +17212,23 @@
               ]
             }
           ]
+        },
+        {
+          "name": "Text",
+          "tags": "",
+          "type": "BBText::BBText",
+          "variables": [],
+          "behaviors": [],
+          "content": {
+            "text": "Do you ever wonder what makes your everyday appliances work? For example, your refrigerator, remote control cars, fan and even the lighting in your house are all working with the help of electricity. It is energy that can build up in one place, or flow from one place to another place. ",
+            "opacity": 255,
+            "fontSize": 30,
+            "visible": true,
+            "color": "#000000",
+            "fontFamily": "Quicksand-Medium.ttf",
+            "align": "left",
+            "wordWrap": true
+          }
         }
       ],
       "events": [
