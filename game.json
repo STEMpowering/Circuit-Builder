@@ -1142,6 +1142,33 @@
         "name": "NewObject-1-14.png",
         "smoothed": true,
         "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "Turbine-1-7.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Turbine-1-7.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "Turbine-1-8.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Turbine-1-8.png",
+        "smoothed": true,
+        "userAdded": false
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "Turbine-1-9.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Turbine-1-9.png",
+        "smoothed": true,
+        "userAdded": true
       }
     ],
     "resourceFolders": []
@@ -18060,7 +18087,7 @@
               },
               "parameters": [
                 "",
-                "\"Lesson 3 - Ohm's Law\"",
+                "\"Lesson 2 and a half - Generators\"",
                 ""
               ],
               "subInstructions": []
@@ -18151,8 +18178,8 @@
           "locked": false,
           "name": "Title",
           "persistentUuid": "e4654f77-6279-4ba0-9bd4-8bfb52283bc0",
-          "width": 650,
-          "x": 84,
+          "width": 539,
+          "x": 128,
           "y": 16,
           "zOrder": 2,
           "numberProperties": [],
@@ -18235,54 +18262,6 @@
           "x": 29,
           "y": 213,
           "zOrder": 9,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": true,
-          "height": 216,
-          "layer": "",
-          "locked": false,
-          "name": "Turbine",
-          "persistentUuid": "73eb5084-18bb-4264-af5c-d75ac22e619c",
-          "width": 89,
-          "x": 484,
-          "y": 205,
-          "zOrder": 10,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": true,
-          "height": 73,
-          "layer": "",
-          "locked": false,
-          "name": "Generator",
-          "persistentUuid": "275c5758-2d53-4462-b90f-33ed9beb345e",
-          "width": 89,
-          "x": 655,
-          "y": 207,
-          "zOrder": 11,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": true,
-          "height": 122,
-          "layer": "",
-          "locked": false,
-          "name": "Grid",
-          "persistentUuid": "721b19a3-e28e-4f52-a7ee-f24e6f3fefda",
-          "width": 95,
-          "x": 583,
-          "y": 262,
-          "zOrder": 12,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
@@ -18426,7 +18405,55 @@
           "width": 753,
           "x": 20,
           "y": 21,
-          "zOrder": 24,
+          "zOrder": 1,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "height": 240,
+          "layer": "",
+          "locked": false,
+          "name": "Turbine",
+          "persistentUuid": "7d04428b-595b-4a55-ab98-07e412eba4f8",
+          "width": 37,
+          "x": 509,
+          "y": 205,
+          "zOrder": 25,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "height": 109,
+          "layer": "",
+          "locked": false,
+          "name": "Grid",
+          "persistentUuid": "038e620b-a661-474a-9b99-cb8e61a7bb6e",
+          "width": 57,
+          "x": 583,
+          "y": 262,
+          "zOrder": 26,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "height": 63,
+          "layer": "",
+          "locked": false,
+          "name": "Generator",
+          "persistentUuid": "34ba825d-99ee-442c-8cf7-10d36b019651",
+          "width": 66,
+          "x": 665,
+          "y": 207,
+          "zOrder": 27,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
@@ -18479,7 +18506,7 @@
           "variables": [],
           "behaviors": [],
           "content": {
-            "text": "[b][shadow=red][outline=yellow]Electricity Generation[/outline][/shadow][/b]",
+            "text": "[b][shadow=red][outline=yellow]Electricity Activity[/outline][/shadow][/b]",
             "opacity": 255,
             "fontSize": 64,
             "visible": true,
@@ -18495,7 +18522,12 @@
           "type": "Sprite",
           "updateIfNotVisible": false,
           "variables": [],
-          "behaviors": [],
+          "behaviors": [
+            {
+              "name": "Draggable",
+              "type": "DraggableBehavior::Draggable"
+            }
+          ],
           "animations": [
             {
               "name": "Turbine",
@@ -18534,7 +18566,12 @@
           "type": "Sprite",
           "updateIfNotVisible": false,
           "variables": [],
-          "behaviors": [],
+          "behaviors": [
+            {
+              "name": "Draggable",
+              "type": "DraggableBehavior::Draggable"
+            }
+          ],
           "animations": [
             {
               "name": "Turbine",
@@ -18573,7 +18610,12 @@
           "type": "Sprite",
           "updateIfNotVisible": false,
           "variables": [],
-          "behaviors": [],
+          "behaviors": [
+            {
+              "name": "Draggable",
+              "type": "DraggableBehavior::Draggable"
+            }
+          ],
           "animations": [
             {
               "name": "Turbine",
@@ -18585,7 +18627,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": false,
-                      "image": "Turbine-1-1.png",
+                      "image": "Turbine-1-8.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -18612,7 +18654,12 @@
           "type": "Sprite",
           "updateIfNotVisible": false,
           "variables": [],
-          "behaviors": [],
+          "behaviors": [
+            {
+              "name": "Draggable",
+              "type": "DraggableBehavior::Draggable"
+            }
+          ],
           "animations": [
             {
               "name": "Turbine",
@@ -18624,7 +18671,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": false,
-                      "image": "Turbine-1-0.png",
+                      "image": "Turbine-1-9.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -18651,7 +18698,12 @@
           "type": "Sprite",
           "updateIfNotVisible": false,
           "variables": [],
-          "behaviors": [],
+          "behaviors": [
+            {
+              "name": "Draggable",
+              "type": "DraggableBehavior::Draggable"
+            }
+          ],
           "animations": [
             {
               "name": "Turbine",
@@ -18663,7 +18715,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": false,
-                      "image": "Turbine-1.png",
+                      "image": "Turbine-1-7.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -19213,9 +19265,32 @@
                   "parameters": [
                     "Turbine",
                     "=",
-                    "81",
+                    "107",
                     "=",
-                    "220"
+                    "207"
+                  ],
+                  "subInstructions": []
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "Delete"
+                  },
+                  "parameters": [
+                    "TurbineHitBox",
+                    ""
+                  ],
+                  "subInstructions": []
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "ActivateBehavior"
+                  },
+                  "parameters": [
+                    "Turbine",
+                    "Draggable",
+                    "no"
                   ],
                   "subInstructions": []
                 }
@@ -19262,7 +19337,7 @@
                   "parameters": [
                     "Turbine",
                     "=",
-                    "484",
+                    "509",
                     "=",
                     "205"
                   ],
@@ -19311,7 +19386,7 @@
                   "parameters": [
                     "Turbine",
                     "=",
-                    "484",
+                    "509",
                     "=",
                     "205"
                   ],
@@ -19360,7 +19435,7 @@
                   "parameters": [
                     "Turbine",
                     "=",
-                    "484",
+                    "509",
                     "=",
                     "205"
                   ],
@@ -19409,7 +19484,7 @@
                   "parameters": [
                     "Turbine",
                     "=",
-                    "484",
+                    "509",
                     "=",
                     "205"
                   ],
@@ -19475,6 +19550,29 @@
                     "164",
                     "=",
                     "320"
+                  ],
+                  "subInstructions": []
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "Delete"
+                  },
+                  "parameters": [
+                    "GearBoxHitBox",
+                    ""
+                  ],
+                  "subInstructions": []
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "ActivateBehavior"
+                  },
+                  "parameters": [
+                    "GearBox",
+                    "Draggable",
+                    "no"
                   ],
                   "subInstructions": []
                 }
@@ -19731,9 +19829,32 @@
                   "parameters": [
                     "Generator",
                     "=",
-                    "246",
+                    "245",
                     "=",
                     "316"
+                  ],
+                  "subInstructions": []
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "Delete"
+                  },
+                  "parameters": [
+                    "GeneratorHitBox",
+                    ""
+                  ],
+                  "subInstructions": []
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "ActivateBehavior"
+                  },
+                  "parameters": [
+                    "Generator",
+                    "Draggable",
+                    "no"
                   ],
                   "subInstructions": []
                 }
@@ -19995,6 +20116,29 @@
                     "276"
                   ],
                   "subInstructions": []
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "Delete"
+                  },
+                  "parameters": [
+                    "PowerInvertHitBox",
+                    ""
+                  ],
+                  "subInstructions": []
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "ActivateBehavior"
+                  },
+                  "parameters": [
+                    "PowerInverter",
+                    "Draggable",
+                    "no"
+                  ],
+                  "subInstructions": []
                 }
               ],
               "events": []
@@ -20249,9 +20393,32 @@
                   "parameters": [
                     "Grid",
                     "=",
-                    "390",
+                    "406",
                     "=",
-                    "258"
+                    "261"
+                  ],
+                  "subInstructions": []
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "Delete"
+                  },
+                  "parameters": [
+                    "GridHitBox",
+                    ""
+                  ],
+                  "subInstructions": []
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "ActivateBehavior"
+                  },
+                  "parameters": [
+                    "Grid",
+                    "Draggable",
+                    "no"
                   ],
                   "subInstructions": []
                 }
@@ -20606,7 +20773,7 @@
                   "parameters": [
                     "Turbine",
                     "=",
-                    "484",
+                    "509",
                     "=",
                     "205"
                   ],
@@ -20723,7 +20890,7 @@
           "creationTime": 0,
           "disabled": false,
           "folded": true,
-          "name": "Grouped events",
+          "name": "Bad Zone 2",
           "source": "",
           "type": "BuiltinCommonInstructions::Group",
           "events": [
@@ -20816,7 +20983,7 @@
                   "parameters": [
                     "Turbine",
                     "=",
-                    "484",
+                    "509",
                     "=",
                     "205"
                   ],
@@ -21093,13 +21260,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 373,
+          "height": 365,
           "layer": "",
           "locked": false,
           "name": "Text",
           "persistentUuid": "7603badd-e631-489f-a127-2e90ec19e8b5",
-          "width": 320,
-          "x": 443,
+          "width": 331,
+          "x": 430,
           "y": 133,
           "zOrder": 7,
           "numberProperties": [],
@@ -21109,14 +21276,14 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 295,
+          "height": 290,
           "layer": "",
           "locked": false,
           "name": "Hydro",
           "persistentUuid": "043bfaa5-3d62-4f76-ba4d-282c363043f9",
-          "width": 406,
-          "x": 32,
-          "y": 160,
+          "width": 399,
+          "x": 27,
+          "y": 156,
           "zOrder": 11,
           "numberProperties": [],
           "stringProperties": [],
@@ -21303,7 +21470,7 @@
           "variables": [],
           "behaviors": [],
           "content": {
-            "text": "Once we have some source of kinetic energy, we can do the conversion into electrical energy. In the same way motion has kinetic energy, electricity has electrical energy. Once this conversion takes place, we will have electricity on our hands! these “electrical engines” convert movement into electricity, known as generators.\n\nEssentially, we go from an energy source, like coal or gasoline, to movement by using a mechanical engine. From the movement created by this engine, we can use a generator to create electricity!",
+            "text": "Once we have some source of kinetic energy, we can do the conversion into electrical energy. In the same way motion has kinetic energy, electricity has electrical energy. Once this conversion takes place, we will have electricity on our hands! these “electrical engines” convert movement into electricity, known as power inverters.\n\nEssentially, we go from an energy source, like coal or gasoline, to movement by using a mechanical engine. From the movement created by this engine, we can use a power inverter to create electricity!",
             "opacity": 255,
             "fontSize": 20,
             "visible": true,
@@ -21399,7 +21566,7 @@
               },
               "parameters": [
                 "",
-                "",
+                "\"Lesson 2 and a half - Activity\"",
                 ""
               ],
               "subInstructions": []
@@ -21759,7 +21926,7 @@
           "variables": [],
           "behaviors": [],
           "content": {
-            "text": "Electricity is very important for our daily lives as it affects us wherever we go, but how is it made you may ask.\n\nIt is generated using different energy sources such as coal, hydroelectric, wind, solar and et cetera. Essentially, it all boils down to creating some sort of movement and motion carrying kinetic energy. For the energy sources mentioned, a mechanical engine is used to function, for instance, the engine in your car is a good example of a mechanical engine, as it converts the energy in gasoline into movement. ",
+            "text": "Electricity is very important for our daily lives as it affects us wherever we go, but how is it made you may ask.\n\nIt is generated using different energy sources such as coal, hydroelectric, wind, solar and et cetera. Essentially, it all boils down to creating some sort of movement and motion carrying kinetic energy. For the energy sources mentioned, a mechanical engine or generator is used to function, for instance, the engine in your car is a good example of a mechanical engine, as it converts the energy in gasoline into movement. ",
             "opacity": 255,
             "fontSize": 20,
             "visible": true,
@@ -22833,7 +23000,7 @@
               },
               "parameters": [
                 "",
-                "\"Lesson 2 - Current\"",
+                "\"Lesson 2 and a half - Activity\"",
                 ""
               ],
               "subInstructions": []
