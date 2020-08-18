@@ -14,7 +14,7 @@
     "macExecutableFilename": "",
     "orientation": "landscape",
     "packageName": "com.example.gamename",
-    "projectFile": "C:\\Users\\gesha\\OneDrive\\Documents\\GDevelop projects\\My project8\\game.json",
+    "projectFile": "C:\\Users\\user\\Documents\\Resume\\Summer 2020\\(AAAAA) Job\\GDev\\Circuit-Builder\\game.json",
     "scaleMode": "linear",
     "sizeOnStartupMode": "adaptWidth",
     "useExternalSourceFiles": false,
@@ -1169,6 +1169,15 @@
         "name": "Turbine-1-9.png",
         "smoothed": true,
         "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "NewObject-1-15.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "NewObject-1-15.png",
+        "smoothed": true,
+        "userAdded": true
       }
     ],
     "resourceFolders": []
@@ -1641,7 +1650,7 @@
         "gridWidth": 32,
         "snap": true,
         "windowMask": false,
-        "zoomFactor": 0.94
+        "zoomFactor": 0.7256
       },
       "objectsGroups": [
         {
@@ -6795,6 +6804,64 @@
                           {
                             "x": 42.4211,
                             "y": 20.4737
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Joint",
+          "tags": "",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "NewObject",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "NewObject-1-15.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 2.30769,
+                            "y": 2.30769
+                          },
+                          {
+                            "x": 12.0526,
+                            "y": 2.26316
+                          },
+                          {
+                            "x": 12.1579,
+                            "y": 11.9474
+                          },
+                          {
+                            "x": 2.36842,
+                            "y": 11.9474
                           }
                         ]
                       ]
@@ -16295,6 +16362,14 @@
             }
           ],
           "events": []
+        },
+        {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::JsCode",
+          "inlineCode": "\n// only runs in first frame\nif (runtimeScene.getTimeManager().isFirstFrame()) {\n    // insert joints at corners between wires\n    let lines = [ runtimeScene.getObjects('Line')[0] ];\n    let i = 2;\n    for (; i <= 30; i += 1) {\n        lines.push( runtimeScene.getObjects('Line' + i)[0] );\n    }\n\n    let zorder = 502;\n    // insert joints in most spots except the ending column\n    lines.forEach((line, index) => {\n        let joint = runtimeScene.createObject('Joint');\n        const lheight = line.getHeight();\n        joint.setZOrder(zorder);\n        joint.setX(line.getX() - 7); joint.setY(line.getY() + lheight / 2 - 10);\n    });\n\n    // insert joints at ending column\n    i = 5;\n    for (; i <= 30; i += 5) {\n        let line = runtimeScene.getObjects('Line' + i)[0];\n\n        let joint = runtimeScene.createObject('Joint');\n        const lwidth = line.getWidth(); const lheight = line.getHeight();\n        joint.setZOrder(zorder);\n        joint.setX(line.getX() + lwidth - 7); joint.setY(line.getY() + lheight / 2 - 10);\n    }\n}",
+          "parameterObjects": "",
+          "useStrict": true
         }
       ],
       "layers": [

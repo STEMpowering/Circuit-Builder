@@ -14,7 +14,7 @@
     "macExecutableFilename": "",
     "orientation": "landscape",
     "packageName": "com.example.gamename",
-    "projectFile": "C:\\Users\\gesha\\OneDrive\\Documents\\GDevelop projects\\My project8\\game.json",
+    "projectFile": "C:\\Users\\user\\Documents\\Resume\\Summer 2020\\(AAAAA) Job\\GDev\\Circuit-Builder\\game.json",
     "scaleMode": "linear",
     "sizeOnStartupMode": "adaptWidth",
     "useExternalSourceFiles": false,
@@ -1169,6 +1169,15 @@
         "name": "Turbine-1-9.png",
         "smoothed": true,
         "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "NewObject-1-15.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "NewObject-1-15.png",
+        "smoothed": true,
+        "userAdded": true
       }
     ],
     "resourceFolders": []
@@ -1641,7 +1650,7 @@
         "gridWidth": 32,
         "snap": true,
         "windowMask": false,
-        "zoomFactor": 0.94
+        "zoomFactor": 0.7256
       },
       "objectsGroups": [
         {
@@ -6795,6 +6804,64 @@
                           {
                             "x": 42.4211,
                             "y": 20.4737
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Joint",
+          "tags": "",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "NewObject",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "NewObject-1-15.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 2.30769,
+                            "y": 2.30769
+                          },
+                          {
+                            "x": 12.0526,
+                            "y": 2.26316
+                          },
+                          {
+                            "x": 12.1579,
+                            "y": 11.9474
+                          },
+                          {
+                            "x": 2.36842,
+                            "y": 11.9474
                           }
                         ]
                       ]
@@ -16295,6 +16362,14 @@
             }
           ],
           "events": []
+        },
+        {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::JsCode",
+          "inlineCode": "\n// only runs in first frame\nif (runtimeScene.getTimeManager().isFirstFrame()) {\n    // insert joints at corners between wires\n    let lines = [ runtimeScene.getObjects('Line')[0] ];\n    let i = 2;\n    for (; i <= 30; i += 1) {\n        lines.push( runtimeScene.getObjects('Line' + i)[0] );\n    }\n\n    let zorder = 502;\n    // insert joints in most spots except the ending column\n    lines.forEach((line, index) => {\n        let joint = runtimeScene.createObject('Joint');\n        const lheight = line.getHeight();\n        joint.setZOrder(zorder);\n        joint.setX(line.getX() - 7); joint.setY(line.getY() + lheight / 2 - 10);\n    });\n\n    // insert joints at ending column\n    i = 5;\n    for (; i <= 30; i += 5) {\n        let line = runtimeScene.getObjects('Line' + i)[0];\n\n        let joint = runtimeScene.createObject('Joint');\n        const lwidth = line.getWidth(); const lheight = line.getHeight();\n        joint.setZOrder(zorder);\n        joint.setX(line.getX() + lwidth - 7); joint.setY(line.getY() + lheight / 2 - 10);\n    }\n}",
+          "parameterObjects": "",
+          "useStrict": true
         }
       ],
       "layers": [
@@ -18178,8 +18253,8 @@
           "locked": false,
           "name": "Title",
           "persistentUuid": "e4654f77-6279-4ba0-9bd4-8bfb52283bc0",
-          "width": 539,
-          "x": 128,
+          "width": 650,
+          "x": 84,
           "y": 16,
           "zOrder": 2,
           "numberProperties": [],
@@ -18405,7 +18480,7 @@
           "width": 753,
           "x": 20,
           "y": 21,
-          "zOrder": 1,
+          "zOrder": 24,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
@@ -18506,7 +18581,7 @@
           "variables": [],
           "behaviors": [],
           "content": {
-            "text": "[b][shadow=red][outline=yellow]Electricity Activity[/outline][/shadow][/b]",
+            "text": "[b][shadow=red][outline=yellow]Electricity Generation[/outline][/shadow][/b]",
             "opacity": 255,
             "fontSize": 64,
             "visible": true,
@@ -21260,13 +21335,13 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 365,
+          "height": 373,
           "layer": "",
           "locked": false,
           "name": "Text",
           "persistentUuid": "7603badd-e631-489f-a127-2e90ec19e8b5",
-          "width": 331,
-          "x": 430,
+          "width": 320,
+          "x": 443,
           "y": 133,
           "zOrder": 7,
           "numberProperties": [],
@@ -21276,14 +21351,14 @@
         {
           "angle": 0,
           "customSize": true,
-          "height": 290,
+          "height": 295,
           "layer": "",
           "locked": false,
           "name": "Hydro",
           "persistentUuid": "043bfaa5-3d62-4f76-ba4d-282c363043f9",
-          "width": 399,
-          "x": 27,
-          "y": 156,
+          "width": 406,
+          "x": 32,
+          "y": 160,
           "zOrder": 11,
           "numberProperties": [],
           "stringProperties": [],
@@ -21470,7 +21545,7 @@
           "variables": [],
           "behaviors": [],
           "content": {
-            "text": "Once we have some source of kinetic energy, we can do the conversion into electrical energy. In the same way motion has kinetic energy, electricity has electrical energy. Once this conversion takes place, we will have electricity on our hands! these “electrical engines” convert movement into electricity, known as power inverters.\n\nEssentially, we go from an energy source, like coal or gasoline, to movement by using a mechanical engine. From the movement created by this engine, we can use a power inverter to create electricity!",
+            "text": "Once we have some source of kinetic energy, we can do the conversion into electrical energy. In the same way motion has kinetic energy, electricity has electrical energy. Once this conversion takes place, we will have electricity on our hands! these “electrical engines” convert movement into electricity, known as generators.\n\nEssentially, we go from an energy source, like coal or gasoline, to movement by using a mechanical engine. From the movement created by this engine, we can use a generator to create electricity!",
             "opacity": 255,
             "fontSize": 20,
             "visible": true,
@@ -21926,7 +22001,7 @@
           "variables": [],
           "behaviors": [],
           "content": {
-            "text": "Electricity is very important for our daily lives as it affects us wherever we go, but how is it made you may ask.\n\nIt is generated using different energy sources such as coal, hydroelectric, wind, solar and et cetera. Essentially, it all boils down to creating some sort of movement and motion carrying kinetic energy. For the energy sources mentioned, a mechanical engine or generator is used to function, for instance, the engine in your car is a good example of a mechanical engine, as it converts the energy in gasoline into movement. ",
+            "text": "Electricity is very important for our daily lives as it affects us wherever we go, but how is it made you may ask.\n\nIt is generated using different energy sources such as coal, hydroelectric, wind, solar and et cetera. Essentially, it all boils down to creating some sort of movement and motion carrying kinetic energy. For the energy sources mentioned, a mechanical engine is used to function, for instance, the engine in your car is a good example of a mechanical engine, as it converts the energy in gasoline into movement. ",
             "opacity": 255,
             "fontSize": 20,
             "visible": true,
