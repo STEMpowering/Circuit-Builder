@@ -2668,8 +2668,8 @@
           "name": "Lightbulb",
           "persistentUuid": "0dd0ff54-43c3-40b8-aefc-d1979b301f56",
           "width": 0,
-          "x": 20,
-          "y": 94,
+          "x": 21,
+          "y": 109,
           "zOrder": 211,
           "numberProperties": [],
           "stringProperties": [],
@@ -6819,7 +6819,12 @@
           "tags": "",
           "type": "Sprite",
           "updateIfNotVisible": false,
-          "variables": [],
+          "variables": [
+            {
+              "name": "wires",
+              "value": ""
+            }
+          ],
           "behaviors": [],
           "animations": [
             {
@@ -16367,7 +16372,23 @@
           "disabled": false,
           "folded": false,
           "type": "BuiltinCommonInstructions::JsCode",
-          "inlineCode": "\n// only runs in first frame\nif (runtimeScene.getTimeManager().isFirstFrame()) {\n    // insert joints at corners between wires\n    let lines = [ runtimeScene.getObjects('Line')[0] ];\n    let i = 2;\n    for (; i <= 30; i += 1) {\n        lines.push( runtimeScene.getObjects('Line' + i)[0] );\n    }\n\n    let zorder = 502;\n    // insert joints in most spots except the ending column\n    lines.forEach((line, index) => {\n        let joint = runtimeScene.createObject('Joint');\n        const lheight = line.getHeight();\n        joint.setZOrder(zorder);\n        joint.setX(line.getX() - 7); joint.setY(line.getY() + lheight / 2 - 10);\n    });\n\n    // insert joints at ending column\n    i = 5;\n    for (; i <= 30; i += 5) {\n        let line = runtimeScene.getObjects('Line' + i)[0];\n\n        let joint = runtimeScene.createObject('Joint');\n        const lwidth = line.getWidth(); const lheight = line.getHeight();\n        joint.setZOrder(zorder);\n        joint.setX(line.getX() + lwidth - 7); joint.setY(line.getY() + lheight / 2 - 10);\n    }\n}",
+          "inlineCode": "// setup in first frame\n\nif (runtimeScene.getTimeManager().isFirstFrame()) {\n    //gdjs.wires = []; // setup wires stored by each joint\n\n    // insert joints at corners between wires\n    let lines = [ runtimeScene.getObjects('Line')[0] ];\n    let i = 2;\n    for (; i <= 30; i += 1) {\n        lines.push( runtimeScene.getObjects('Line' + i)[0] );\n    }\n\n    let zorder = 502;\n    // insert joints in most spots except the ending column\n    lines.forEach((line, index) => {\n        let joint = runtimeScene.createObject('Joint');\n        const lheight = line.getHeight();\n        joint.setZOrder(zorder);\n        joint.setX(line.getX() - 6); joint.setY(line.getY() + lheight / 2 - 10);\n\n        // setup array to store wires\n        joint.wires = [];\n    });\n\n    // insert joints at ending column\n    i = 5;\n    for (; i <= 30; i += 5) {\n        let line = runtimeScene.getObjects('Line' + i)[0];\n\n        let joint = runtimeScene.createObject('Joint');\n        const lwidth = line.getWidth(); const lheight = line.getHeight();\n        joint.setZOrder(zorder);\n        joint.setX(line.getX() + lwidth - 6); joint.setY(line.getY() + lheight / 2 - 9);\n\n        // setup array to store wires\n        joint.wires = [];\n    }\n}\n",
+          "parameterObjects": "",
+          "useStrict": true
+        },
+        {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [],
+          "events": []
+        },
+        {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::JsCode",
+          "inlineCode": "// wire-joint collisions\n\nlet wires = runtimeScene.getObjects('Wire');\nlet joints = runtimeScene.getObjects('Joint');\n\nwires.forEach( (wire, wInd) => {\n    joints.forEach( (joint, jIndex) => {\n        // check if wire and joint are colliding\n        if (gdjs.RuntimeObject.collisionTest( wire, joint )) {\n            // check if already stored by wire array\n            if (joint.wires.indexOf(wIndex) != -1) {\n                joint.wires.push(wIndex);\n            }\n        } // no longer colliding\n        else {\n            let win = joint.wires.indexOf(wIndex);\n            if (win != -1) {\n                joint.wires.splice(win, 1);\n            }\n        }\n    } );\n} );\n\nif (runtimeScene.getTimeManager().isFirstFrame()) {\n    return;\n}\n\njoints.wires.forEach((win, index) => {\n    //wire.setZOrder(0);\n});",
           "parameterObjects": "",
           "useStrict": true
         }
