@@ -14,7 +14,7 @@
     "macExecutableFilename": "",
     "orientation": "landscape",
     "packageName": "com.example.gamename",
-    "projectFile": "C:\\Users\\gesha\\OneDrive\\Documents\\GDevelop projects\\My project8\\game.json",
+    "projectFile": "C:\\Users\\user\\Documents\\Resume\\Summer 2020\\(AAAAA) Job\\GDev\\Circuit-Builder\\game.json",
     "scaleMode": "linear",
     "sizeOnStartupMode": "adaptWidth",
     "useExternalSourceFiles": false,
@@ -677,15 +677,6 @@
       },
       {
         "alwaysLoaded": false,
-        "file": "Lighted-1-0.png",
-        "kind": "image",
-        "metadata": "",
-        "name": "Lighted-1-0.png",
-        "smoothed": true,
-        "userAdded": true
-      },
-      {
-        "alwaysLoaded": false,
         "file": "CircuitResistor-1-1.png",
         "kind": "image",
         "metadata": "",
@@ -1167,6 +1158,42 @@
         "kind": "image",
         "metadata": "",
         "name": "Turbine-1-9.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "NewObject-1-15.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "NewObject-1-15.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "NewObject-1-16.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "NewObject-1-16.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "Lighted-1-0.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Lighted-1-0.png",
+        "smoothed": true,
+        "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "Lighted-horizontal.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Lighted-horizontal.png",
         "smoothed": true,
         "userAdded": true
       }
@@ -1687,7 +1714,7 @@
         "gridWidth": 32,
         "snap": true,
         "windowMask": false,
-        "zoomFactor": 0.94
+        "zoomFactor": 1.0332
       },
       "objectsGroups": [
         {
@@ -2705,8 +2732,8 @@
           "name": "Lightbulb",
           "persistentUuid": "0dd0ff54-43c3-40b8-aefc-d1979b301f56",
           "width": 0,
-          "x": 20,
-          "y": 94,
+          "x": 21,
+          "y": 109,
           "zOrder": 211,
           "numberProperties": [],
           "stringProperties": [],
@@ -2865,7 +2892,7 @@
           "name": "Battery",
           "persistentUuid": "87c59070-6c34-4c7b-b184-d1e95c79333e",
           "width": 0,
-          "x": 77,
+          "x": 78,
           "y": 227,
           "zOrder": 501,
           "numberProperties": [],
@@ -6419,20 +6446,36 @@
                       "customCollisionMask": [
                         [
                           {
-                            "x": 22.6,
-                            "y": 1.2
+                            "x": 43.2641,
+                            "y": 67.6838
                           },
                           {
-                            "x": 48.2,
-                            "y": 1.2
+                            "x": 31.2537,
+                            "y": 66.6829
                           },
                           {
-                            "x": 48.2,
-                            "y": 68.4
+                            "x": 29.7524,
+                            "y": 55.6733
                           },
                           {
-                            "x": 21.8,
-                            "y": 69.2
+                            "x": 3.22937,
+                            "y": 56.1738
+                          },
+                          {
+                            "x": 2.72895,
+                            "y": 46.1651
+                          },
+                          {
+                            "x": 68.7863,
+                            "y": 45.1642
+                          },
+                          {
+                            "x": 68.2,
+                            "y": 54.6
+                          },
+                          {
+                            "x": 41.7628,
+                            "y": 55.1729
                           }
                         ]
                       ]
@@ -6467,20 +6510,164 @@
                       "customCollisionMask": [
                         [
                           {
-                            "x": 2.60004,
-                            "y": 22.8
-                          },
-                          {
                             "x": 69,
-                            "y": 20.4
+                            "y": 40.6923
                           },
                           {
-                            "x": 67.4,
-                            "y": 48.4
+                            "x": 55.1539,
+                            "y": 42.5385
                           },
                           {
-                            "x": 1,
-                            "y": 48.4
+                            "x": 56.4,
+                            "y": 67.7
+                          },
+                          {
+                            "x": 47.1539,
+                            "y": 66.5385
+                          },
+                          {
+                            "x": 45.6154,
+                            "y": 3.15385
+                          },
+                          {
+                            "x": 52.8,
+                            "y": 2.9
+                          },
+                          {
+                            "x": 54.2308,
+                            "y": 27.7692
+                          },
+                          {
+                            "x": 68.3846,
+                            "y": 27.4615
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "lit",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "Lighted-1-0.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 42.7933,
+                            "y": 52.0096
+                          },
+                          {
+                            "x": 42.101,
+                            "y": 66.5481
+                          },
+                          {
+                            "x": 29.6394,
+                            "y": 66.5481
+                          },
+                          {
+                            "x": 27.5625,
+                            "y": 52.7019
+                          },
+                          {
+                            "x": 2.98558,
+                            "y": 53.0481
+                          },
+                          {
+                            "x": 2.63943,
+                            "y": 41.9712
+                          },
+                          {
+                            "x": 67.7164,
+                            "y": 41.9712
+                          },
+                          {
+                            "x": 66.6779,
+                            "y": 53.0481
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "vertlit",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "Lighted-horizontal.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 47.6394,
+                            "y": 25.7019
+                          },
+                          {
+                            "x": 68.4087,
+                            "y": 30.8942
+                          },
+                          {
+                            "x": 68.4087,
+                            "y": 43.7019
+                          },
+                          {
+                            "x": 47.9856,
+                            "y": 43.7019
+                          },
+                          {
+                            "x": 48.3317,
+                            "y": 68.625
+                          },
+                          {
+                            "x": 37.2548,
+                            "y": 67.9327
+                          },
+                          {
+                            "x": 35.8702,
+                            "y": 2.16346
+                          },
+                          {
+                            "x": 46.9471,
+                            "y": 1.81731
                           }
                         ]
                       ]
@@ -6497,12 +6684,7 @@
           "type": "Sprite",
           "updateIfNotVisible": false,
           "variables": [],
-          "behaviors": [
-            {
-              "name": "Draggable",
-              "type": "DraggableBehavior::Draggable"
-            }
-          ],
+          "behaviors": [],
           "animations": [
             {
               "name": "battery_vert",
@@ -6530,20 +6712,20 @@
                       "customCollisionMask": [
                         [
                           {
-                            "x": 29.9167,
-                            "y": 0.583333
+                            "x": 21.8,
+                            "y": 0.400005
                           },
                           {
-                            "x": 40.4167,
-                            "y": 0.583333
+                            "x": 47.4,
+                            "y": 2.8
                           },
                           {
-                            "x": 40.25,
-                            "y": 69.75
+                            "x": 51.4,
+                            "y": 69.2
                           },
                           {
-                            "x": 28.75,
-                            "y": 69.5833
+                            "x": 23.4,
+                            "y": 66.8
                           }
                         ]
                       ]
@@ -6599,20 +6781,20 @@
                       "customCollisionMask": [
                         [
                           {
-                            "x": -0.0666606,
-                            "y": 28.6
+                            "x": 0.571442,
+                            "y": 29.5714
                           },
                           {
-                            "x": 63.8,
-                            "y": 28.8667
+                            "x": 68.5714,
+                            "y": 30.1429
                           },
                           {
-                            "x": 63.6667,
-                            "y": 35
+                            "x": 68.2857,
+                            "y": 39.5714
                           },
                           {
-                            "x": 0.600006,
-                            "y": 35.1333
+                            "x": 0.571442,
+                            "y": 39.8571
                           }
                         ]
                       ]
@@ -6841,6 +7023,69 @@
                           {
                             "x": 42.4211,
                             "y": 20.4737
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Joint",
+          "tags": "",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [
+            {
+              "name": "wires",
+              "value": ""
+            }
+          ],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "NewObject",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": true,
+                      "image": "NewObject-1-16.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": [
+                        [
+                          {
+                            "x": 46.8,
+                            "y": 17.2
+                          },
+                          {
+                            "x": 15.6,
+                            "y": 17.2
+                          },
+                          {
+                            "x": 17.2,
+                            "y": 48.4
+                          },
+                          {
+                            "x": 49.2,
+                            "y": 48.4
                           }
                         ]
                       ]
@@ -14750,6 +14995,20 @@
                     "yes"
                   ],
                   "subInstructions": []
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "CollisionNP"
+                  },
+                  "parameters": [
+                    "V_Line",
+                    "Battery",
+                    "",
+                    "",
+                    ""
+                  ],
+                  "subInstructions": []
                 }
               ],
               "actions": [
@@ -16341,6 +16600,38 @@
             }
           ],
           "events": []
+        },
+        {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::JsCode",
+          "inlineCode": "// setup in first frame\n\nif (runtimeScene.getTimeManager().isFirstFrame()) {\n    //gdjs.wires = []; // setup wires stored by each joint\n\n    // insert joints at corners between wires\n    let lines = [ runtimeScene.getObjects('Line')[0] ];\n    let i = 2;\n    for (; i <= 30; i += 1) {\n        lines.push( runtimeScene.getObjects('Line' + i)[0] );\n    }\n\n    let zorder = 502;\n    // insert joints in most spots except the ending column\n    lines.forEach((line, index) => {\n        let joint = runtimeScene.createObject('Joint');\n        const lheight = line.getHeight();\n        const jwidth = joint.getWidth(); const jheight = joint.getHeight();\n        joint.setZOrder(zorder);\n        joint.setX(line.getX() - jwidth / 2 - 1); joint.setY(line.getY() - 2);\n\n        // setup set to store wires\n        joint.wires = new Set();\n    });\n\n    // insert joints at ending column\n    i = 5;\n    for (; i <= 30; i += 5) {\n        let line = runtimeScene.getObjects('Line' + i)[0];\n\n        let joint = runtimeScene.createObject('Joint');\n        const lwidth = line.getWidth(); const lheight = line.getHeight();\n        const jwidth = joint.getWidth(); const jheight = joint.getHeight();\n        joint.setZOrder(zorder);\n        joint.setX(line.getX() + jwidth / 2 - 1); joint.setY(line.getY() - 2);\n\n        // setup array to store wires\n        joint.wires = new Set();\n    }\n}\n",
+          "parameterObjects": "",
+          "useStrict": true
+        },
+        {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [],
+          "actions": [],
+          "events": []
+        },
+        {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::JsCode",
+          "inlineCode": "// joint collisions\nlet wires = runtimeScene.getObjects('Wire');\nlet joints = runtimeScene.getObjects('Joint');\nlet batteries = runtimeScene.getObjects('Battery');\n//let bulbs = runtimeScene.getObjects('Lightbulb');\n\nwires.forEach( (wire, wInd) => {\n    joints.forEach( (joint, jIndex) => {\n        // check if wire and joint are colliding\n        if (gdjs.RuntimeObject.collisionTest( wire, joint )) {\n            if (!joint.wires) {\n                joint.wires = new Set();\n            }\n            joint.wires.add(wInd);\n            if (!wire.joints) {\n                wire.joints = new Set();\n            } \n            wire.joints.add(jIndex);\n        } // no longer colliding\n        else {\n            if (joint.wires) {\n                joint.wires.delete(wInd);\n            }\n\n            if (wire.joints) {\n                wire.joints.delete(jIndex);\n            }\n        }\n    } );\n} );\n\nbatteries.forEach( (battery, bInd) => {\n    joints.forEach( (joint, jIndex) => {\n        // check if wire and joint are colliding\n        if (gdjs.RuntimeObject.collisionTest( battery, joint )) {\n            //joint.wires.add(battery);\n            if (!joint.batteries) {\n                joint.batteries = new Set();\n            }\n            joint.batteries.add(bInd);\n\n            if (!battery.joints) {\n                battery.joints = new Set();\n            } \n            battery.joints.add(jIndex);\n            joints[jIndex].setZOrder(0);\n        } // no longer colliding\n        else {\n            //joint.wires.delete(battery);\n            joints[jIndex].setZOrder(505);\n            if (joint.batteries) {\n                joint.batteries.delete(bInd);\n            }\n\n            if (battery.joints) {\n                battery.joints.delete(jIndex);\n            }\n        }\n    } );\n} );\n/*\nbulbs.forEach( (bulb, bulbInd) => {\n    joints.forEach( (joint, jIndex) => {\n        // check if wire and joint are colliding\n        if (gdjs.RuntimeObject.collisionTest( bulb, joint )) {\n            //joint.wires.add(battery);\n            if (!joint.bulbs) {\n                joint.bulbs = new Set();\n            }\n            joint.bulbs.add(bulbInd);\n\n            if (!bulb.joints) {\n                bulb.joints = new Set();\n            } \n            bulb.joints.add(jIndex);\n            joints[jIndex].setZOrder(0);\n        } // no longer colliding\n        else {\n            //joint.wires.delete(battery);\n            joints[jIndex].setZOrder(505);\n            if (joint.bulbs) {\n                joint.bulbs.delete(bulbInd);\n            }\n\n            if (bulb.joints) {\n                bulb.joints.delete(jIndex);\n            }\n        }\n    } );\n} );*/",
+          "parameterObjects": "",
+          "useStrict": true
+        },
+        {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::JsCode",
+          "inlineCode": "// checking if circuit is closed\r\n\r\nif (runtimeScene.getTimeManager().isFirstFrame()) {\r\n    return;\r\n}\r\n\r\nlet batteries = runtimeScene.getObjects('Battery');\r\nlet battery = batteries[0];\r\nlet joints = runtimeScene.getObjects('Joint');\r\n\r\n// check if any joints collided with battery, otherwise do nothing\r\nif (battery.joints.size == 0) {\r\n    return;\r\n}\r\nlet bjoints = battery.joints;\r\n\r\n// retrieve one of the joints\r\nlet bjoint0 = -1;\r\nfor (const bjoint of bjoints) {\r\n    bjoint0 = bjoint;\r\n    break;\r\n}\r\n\r\n// debug\r\n/*let i = 2;\r\nbjoints.forEach((joint, index) => {\r\n    let line = runtimeScene.getObjects('Line' + i)[0];\r\n\r\n    line.setX(0); line.setY(0);\r\n    i++;\r\n});*/\r\n\r\nlet visitedJoints = new Set(); // keep track of currently visited nodes\r\n\r\nlet wires = runtimeScene.getObjects('Wire');\r\n// recursive checking function\r\nconst checkIfConnected = function(jointI) {\r\n    if (jointI == -1) {\r\n        return false;\r\n    }\r\n\r\n    let joint = joints[jointI];\r\n    // flag the joint as visited\r\n    visitedJoints.add(jointI);\r\n\r\n    // base case, if other joint of battery found\r\n    if (jointI != bjoint0 && ( bjoints.has(jointI) )) {\r\n        return true;\r\n    }\r\n    \r\n    let connectionFound = false;\r\n\r\n    // run check on wires of this joint (and the joints connecting to those wires)\r\n    //let i = 2;\r\n    joint.wires.forEach( (wIndex, index) => {\r\n        let wire = wires[wIndex];\r\n\r\n        // get next joint of wire\r\n        let itemJointsI = wire.joints;\r\n        let nextJoint = -1;\r\n        itemJointsI.forEach((itemJointI, index) => {\r\n            if (itemJointI == jointI) {\r\n                return;\r\n            }\r\n            if (visitedJoints.has(itemJointI)) { // dont traverse more than once\r\n                return;\r\n            }\r\n            nextJoint = itemJointI;\r\n            \r\n            /*let line = runtimeScene.getObjects('Line' + i)[0];\r\n            line.setX(0); line.setY(0);\r\n            i++;*/\r\n        });\r\n\r\n        connectionFound = connectionFound || checkIfConnected(nextJoint);\r\n    } );\r\n\r\n    return connectionFound;\r\n}\r\n\r\nif (checkIfConnected(bjoint0)) {\r\n    battery.setX(0); battery.setY(0);\r\n}",
+          "parameterObjects": "",
+          "useStrict": true
         }
       ],
       "layers": [
@@ -18224,8 +18515,8 @@
           "locked": false,
           "name": "Title",
           "persistentUuid": "e4654f77-6279-4ba0-9bd4-8bfb52283bc0",
-          "width": 539,
-          "x": 128,
+          "width": 650,
+          "x": 84,
           "y": 16,
           "zOrder": 2,
           "numberProperties": [],
@@ -18451,7 +18742,7 @@
           "width": 753,
           "x": 20,
           "y": 21,
-          "zOrder": 1,
+          "zOrder": 24,
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
@@ -18552,7 +18843,7 @@
           "variables": [],
           "behaviors": [],
           "content": {
-            "text": "[b][shadow=red][outline=yellow]Electricity Activity[/outline][/shadow][/b]",
+            "text": "[b][shadow=red][outline=yellow]Electricity Generation[/outline][/shadow][/b]",
             "opacity": 255,
             "fontSize": 64,
             "visible": true,
