@@ -1315,6 +1315,15 @@
   ],
   "externalEvents": [],
   "eventsFunctionsExtensions": [],
-  "externalLayouts": [],
+  "externalLayouts": [
+    {
+      "__REFERENCE_TO_SPLIT_OBJECT": true,
+      "referenceTo": "/externalLayouts/newexternallayout"
+    },
+    {
+      "__REFERENCE_TO_SPLIT_OBJECT": true,
+      "referenceTo": "/externalLayouts/newexternallayout2"
+    }
+  ],
   "externalSourceFiles": []
 }
