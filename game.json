@@ -1178,6 +1178,15 @@
         "name": "Lighted-1-0.png",
         "smoothed": true,
         "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "NewObject-1-16.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "NewObject-1-16.png",
+        "smoothed": true,
+        "userAdded": true
       }
     ],
     "resourceFolders": []
@@ -6518,12 +6527,7 @@
           "type": "Sprite",
           "updateIfNotVisible": false,
           "variables": [],
-          "behaviors": [
-            {
-              "name": "Draggable",
-              "type": "DraggableBehavior::Draggable"
-            }
-          ],
+          "behaviors": [],
           "animations": [
             {
               "name": "battery_vert",
@@ -6551,20 +6555,20 @@
                       "customCollisionMask": [
                         [
                           {
-                            "x": 29.9167,
-                            "y": 0.583333
+                            "x": 21.8,
+                            "y": 0.400005
                           },
                           {
-                            "x": 40.4167,
-                            "y": 0.583333
+                            "x": 47.4,
+                            "y": 2.8
                           },
                           {
-                            "x": 40.25,
-                            "y": 69.75
+                            "x": 51.4,
+                            "y": 69.2
                           },
                           {
-                            "x": 28.75,
-                            "y": 69.5833
+                            "x": 23.4,
+                            "y": 66.8
                           }
                         ]
                       ]
@@ -6620,20 +6624,20 @@
                       "customCollisionMask": [
                         [
                           {
-                            "x": -0.0666606,
-                            "y": 28.6
+                            "x": 0.571442,
+                            "y": 29.5714
                           },
                           {
-                            "x": 63.8,
-                            "y": 28.8667
+                            "x": 68.5714,
+                            "y": 30.1429
                           },
                           {
-                            "x": 63.6667,
-                            "y": 35
+                            "x": 68.2857,
+                            "y": 39.5714
                           },
                           {
-                            "x": 0.600006,
-                            "y": 35.1333
+                            "x": 0.571442,
+                            "y": 39.8571
                           }
                         ]
                       ]
@@ -6895,7 +6899,7 @@
                   "sprites": [
                     {
                       "hasCustomCollisionMask": true,
-                      "image": "NewObject-1-15.png",
+                      "image": "NewObject-1-16.png",
                       "points": [],
                       "originPoint": {
                         "name": "origine",
@@ -6911,20 +6915,20 @@
                       "customCollisionMask": [
                         [
                           {
-                            "x": 2.30769,
-                            "y": 2.30769
+                            "x": 46.8,
+                            "y": 17.2
                           },
                           {
-                            "x": 12.0526,
-                            "y": 2.26316
+                            "x": 15.6,
+                            "y": 17.2
                           },
                           {
-                            "x": 12.1579,
-                            "y": 11.9474
+                            "x": 17.2,
+                            "y": 48.4
                           },
                           {
-                            "x": 2.36842,
-                            "y": 11.9474
+                            "x": 49.2,
+                            "y": 48.4
                           }
                         ]
                       ]
@@ -14834,6 +14838,20 @@
                     "yes"
                   ],
                   "subInstructions": []
+                },
+                {
+                  "type": {
+                    "inverted": false,
+                    "value": "CollisionNP"
+                  },
+                  "parameters": [
+                    "V_Line",
+                    "Battery",
+                    "",
+                    "",
+                    ""
+                  ],
+                  "subInstructions": []
                 }
               ],
               "actions": [
@@ -16430,7 +16448,7 @@
           "disabled": false,
           "folded": false,
           "type": "BuiltinCommonInstructions::JsCode",
-          "inlineCode": "// setup in first frame\n\nif (runtimeScene.getTimeManager().isFirstFrame()) {\n    //gdjs.wires = []; // setup wires stored by each joint\n\n    // insert joints at corners between wires\n    let lines = [ runtimeScene.getObjects('Line')[0] ];\n    let i = 2;\n    for (; i <= 30; i += 1) {\n        lines.push( runtimeScene.getObjects('Line' + i)[0] );\n    }\n\n    let zorder = 502;\n    // insert joints in most spots except the ending column\n    lines.forEach((line, index) => {\n        let joint = runtimeScene.createObject('Joint');\n        const lheight = line.getHeight();\n        joint.setZOrder(zorder);\n        joint.setX(line.getX() - 6); joint.setY(line.getY() + lheight / 2 - 10);\n\n        // setup set to store wires\n        joint.wires = new Set();\n    });\n\n    // insert joints at ending column\n    i = 5;\n    for (; i <= 30; i += 5) {\n        let line = runtimeScene.getObjects('Line' + i)[0];\n\n        let joint = runtimeScene.createObject('Joint');\n        const lwidth = line.getWidth(); const lheight = line.getHeight();\n        joint.setZOrder(zorder);\n        joint.setX(line.getX() + lwidth - 6); joint.setY(line.getY() + lheight / 2 - 9);\n\n        // setup array to store wires\n        joint.wires = new Set();\n    }\n}\n",
+          "inlineCode": "// setup in first frame\n\nif (runtimeScene.getTimeManager().isFirstFrame()) {\n    //gdjs.wires = []; // setup wires stored by each joint\n\n    // insert joints at corners between wires\n    let lines = [ runtimeScene.getObjects('Line')[0] ];\n    let i = 2;\n    for (; i <= 30; i += 1) {\n        lines.push( runtimeScene.getObjects('Line' + i)[0] );\n    }\n\n    let zorder = 502;\n    // insert joints in most spots except the ending column\n    lines.forEach((line, index) => {\n        let joint = runtimeScene.createObject('Joint');\n        const lheight = line.getHeight();\n        const jwidth = joint.getWidth(); const jheight = joint.getHeight();\n        joint.setZOrder(zorder);\n        joint.setX(line.getX() - jwidth / 2 - 1); joint.setY(line.getY() - 2);\n\n        // setup set to store wires\n        joint.wires = new Set();\n    });\n\n    // insert joints at ending column\n    i = 5;\n    for (; i <= 30; i += 5) {\n        let line = runtimeScene.getObjects('Line' + i)[0];\n\n        let joint = runtimeScene.createObject('Joint');\n        const lwidth = line.getWidth(); const lheight = line.getHeight();\n        const jwidth = joint.getWidth(); const jheight = joint.getHeight();\n        joint.setZOrder(zorder);\n        joint.setX(line.getX() + jwidth / 2 - 1); joint.setY(line.getY() - 2);\n\n        // setup array to store wires\n        joint.wires = new Set();\n    }\n}\n",
           "parameterObjects": "",
           "useStrict": true
         },
@@ -16446,7 +16464,7 @@
           "disabled": false,
           "folded": false,
           "type": "BuiltinCommonInstructions::JsCode",
-          "inlineCode": "// joint collisions\n\nlet wires = runtimeScene.getObjects('Wire');\nlet joints = runtimeScene.getObjects('Joint');\nlet batteries = runtimeScene.getObjects('Battery');\n\nwires.forEach( (wire, wInd) => {\n    joints.forEach( (joint, jIndex) => {\n        // check if wire and joint are colliding\n        if (gdjs.RuntimeObject.collisionTest( wire, joint )) {\n            joint.wires.add(wire);\n            if (!wire.joints) {\n                wire.joints = new Set();\n            } \n            wire.joints.add(joint);\n        } // no longer colliding\n        else {\n            joint.wires.delete(wire);\n\n            if (wire.joints) {\n                wire.joints.delete(joint);\n            }\n        }\n    } );\n} );\n\nbatteries.forEach( (battery, bInd) => {\n    joints.forEach( (joint, jIndex) => {\n        // check if wire and joint are colliding\n        if (gdjs.RuntimeObject.collisionTest( battery, joint )) {\n            joint.wires.add(battery);\n            if (!battery.joints) {\n                battery.joints = new Set();\n            } \n            battery.joints.add(joint);\n        } // no longer colliding\n        else {\n            joint.wires.delete(battery);\n\n            if (battery.joints) {\n                battery.joints.delete(joint);\n            }\n        }\n    } );\n} );",
+          "inlineCode": "// joint collisions\n{\nlet wires = runtimeScene.getObjects('Wire');\nlet joints = runtimeScene.getObjects('Joint');\nlet batteries = runtimeScene.getObjects('Battery');\n\nwires.forEach( (wire, wInd) => {\n    joints.forEach( (joint, jIndex) => {\n        // check if wire and joint are colliding\n        if (gdjs.RuntimeObject.collisionTest( wire, joint )) {\n            if (!joint.wires) {\n                joint.wires = new Set();\n            }\n            joint.wires.add(wInd);\n            if (!wire.joints) {\n                wire.joints = new Set();\n            } \n            wire.joints.add(jIndex);\n        } // no longer colliding\n        else {\n            if (joint.wires) {\n                joint.wires.delete(wInd);\n            }\n\n            if (wire.joints) {\n                wire.joints.delete(jIndex);\n            }\n        }\n    } );\n} );\n\nbatteries.forEach( (battery, bInd) => {\n    joints.forEach( (joint, jIndex) => {\n        // check if wire and joint are colliding\n        if (gdjs.RuntimeObject.collisionTest( battery, joint )) {\n            //joint.wires.add(battery);\n            if (!joint.batteries) {\n                joint.batteries = new Set();\n            }\n            joint.batteries.add(bInd);\n\n            if (!battery.joints) {\n                battery.joints = new Set();\n            } \n            battery.joints.add(jIndex);\n            joints[jIndex].setZOrder(0);\n        } // no longer colliding\n        else {\n            //joint.wires.delete(battery);\n            joints[jIndex].setZOrder(505);\n            if (joint.batteries) {\n                joint.batteries.delete(bInd);\n            }\n\n            if (battery.joints) {\n                battery.joints.delete(jIndex);\n            }\n        }\n    } );\n} );\n}",
           "parameterObjects": "",
           "useStrict": true
         },
@@ -16454,7 +16472,7 @@
           "disabled": false,
           "folded": false,
           "type": "BuiltinCommonInstructions::JsCode",
-          "inlineCode": "// checking if circuit is closed\n\nif (runtimeScene.getTimeManager().isFirstFrame()) {\n    return;\n}\n\nlet battery = runtimeScene.getObjects('Battery')[0];\nlet bjoints = battery.joints;\n\n// retrieve one of the joints\nlet bjoint0 = {};\nfor (const bjoint in bjoints) {\n    bjoint0 = bjoint;\n    break;\n}\n\n// recursive checking function\nconst checkIfConnected = function(joint) {\n    // base case, if other joint of battery found\n    if (joint != bjoint0 && ( bjoints.has(joint) )) {\n        return true;\n    }\n    /*\n    let connectionFound = false;\n\n    joint.wires.forEach( (item, index) => {\n        // look through adjacent joints, and recursively call above\n        // while storing result\n        let joints = item.joints;\n\n        let nextJoint = {};\n        for (itemJoint in joints) { // find next joint in the item that isn't this one\n            if (itemJoint == joint) {\n                continue;\n            }\n            nextJoint = itemJoint;\n            break;\n        }\n\n        connectionFound = connectionFound || checkIfConnected(nextJoint);\n    } );\n\n    return connectionFound;*/\n}\n\ncheckIfConnected(bjoint0);",
+          "inlineCode": "// checking if circuit is closed\r\n\r\nif (runtimeScene.getTimeManager().isFirstFrame()) {\r\n    return;\r\n}\r\n\r\nlet batteries = runtimeScene.getObjects('Battery');\r\nlet battery = batteries[0];\r\nlet joints = runtimeScene.getObjects('Joint');\r\n\r\n// check if any joints collided with battery, otherwise do nothing\r\nif (battery.joints.size == 0) {\r\n    return;\r\n}\r\nlet bjoints = battery.joints;\r\n\r\n// retrieve one of the joints\r\nlet bjoint0 = -1;\r\nfor (const bjoint of bjoints) {\r\n    bjoint0 = bjoint;\r\n    break;\r\n}\r\n\r\n// debug\r\n/*let i = 2;\r\nbjoints.forEach((joint, index) => {\r\n    let line = runtimeScene.getObjects('Line' + i)[0];\r\n\r\n    line.setX(0); line.setY(0);\r\n    i++;\r\n});*/\r\n\r\nlet wires = runtimeScene.getObjects('Wire');\r\n// keep track of joints of currently visited\r\nlet visitedJoints = new Set();\r\n\r\n// recursive checking function\r\nconst checkIfConnected = function(jointI) {\r\n    if (jointI == -1) {\r\n        return false;\r\n    }\r\n\r\n    let joint = joints[jointI];\r\n    // flag the joint as visited\r\n    visitedJoints.add(joint);\r\n\r\n    // base case, if other joint of battery found\r\n    if (jointI != bjoint0 && ( bjoints.has(jointI) )) {\r\n        return true;\r\n    }\r\n    \r\n    let connectionFound = false;\r\n\r\n    // run check on wires of this joint (and the joints connecting to those wires)\r\n    //let i = 2;\r\n    joint.wires.forEach( (wIndex, index) => {\r\n        let wire = wires[wIndex];\r\n\r\n        // get next joint of wire\r\n        let itemJointsI = wire.joints;\r\n        let nextJoint = -1;\r\n        itemJointsI.forEach((itemJointI, index) => {\r\n            if (itemJointI == jointI) {\r\n                return;\r\n            }\r\n            if (visitedJoints.has(joints[itemJointI])) { // dont traverse more than once\r\n                return;\r\n            }\r\n            nextJoint = itemJointI;\r\n            \r\n        });\r\n\r\n        connectionFound = connectionFound || checkIfConnected(nextJoint);\r\n    } );\r\n\r\n    return connectionFound;\r\n}\r\n\r\nif (checkIfConnected(bjoint0)) {\r\n    battery.setX(0); battery.setY(0);\r\n}",
           "parameterObjects": "",
           "useStrict": true
         }
