@@ -1196,6 +1196,15 @@
         "name": "Lighted-horizontal.png",
         "smoothed": true,
         "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "Halo-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Halo-1.png",
+        "smoothed": true,
+        "userAdded": false
       }
     ],
     "resourceFolders": []
@@ -1714,7 +1723,7 @@
         "gridWidth": 32,
         "snap": true,
         "windowMask": false,
-        "zoomFactor": 0.8326
+        "zoomFactor": 0.7788
       },
       "objectsGroups": [
         {
@@ -6732,7 +6741,12 @@
           "tags": "Materials",
           "type": "Sprite",
           "updateIfNotVisible": false,
-          "variables": [],
+          "variables": [
+            {
+              "name": "resistance",
+              "value": "10"
+            }
+          ],
           "behaviors": [
             {
               "name": "Draggable",
@@ -7439,6 +7453,50 @@
             "g": 0,
             "r": 0
           }
+        },
+        {
+          "name": "Halo",
+          "tags": "",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [
+            {
+              "name": "brightness",
+              "value": "220"
+            }
+          ],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "Halo",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "Halo-1.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ],
       "events": [
@@ -16949,7 +17007,7 @@
           "disabled": false,
           "folded": false,
           "type": "BuiltinCommonInstructions::JsCode",
-          "inlineCode": "// setup in first frame\n\nif (runtimeScene.getTimeManager().isFirstFrame()) {\n    //gdjs.wires = []; // setup wires stored by each joint\n\n    // insert joints at corners between wires\n    let lines = [ runtimeScene.getObjects('Line')[0] ];\n    let i = 2;\n    for (; i <= 30; i += 1) {\n        lines.push( runtimeScene.getObjects('Line' + i)[0] );\n    }\n\n    let zorder = 502;\n    // insert joints in most spots except the ending column\n    lines.forEach((line, index) => {\n        let joint = runtimeScene.createObject('Joint');\n        const lheight = line.getHeight();\n        const jwidth = joint.getWidth(); const jheight = joint.getHeight();\n        joint.setZOrder(zorder);\n        joint.setX(line.getX() - jwidth / 2 - 1); joint.setY(line.getY() - 2);\n\n        // setup to store wires, bulbs\n        joint.wires = new Set();\n        joint.bulbs = new Set();\n    });\n\n    // insert joints at ending column\n    i = 5;\n    for (; i <= 30; i += 5) {\n        let line = runtimeScene.getObjects('Line' + i)[0];\n\n        let joint = runtimeScene.createObject('Joint');\n        const lwidth = line.getWidth(); const lheight = line.getHeight();\n        const jwidth = joint.getWidth(); const jheight = joint.getHeight();\n        joint.setZOrder(zorder);\n        joint.setX(line.getX() + jwidth / 2 - 1); joint.setY(line.getY() - 2);\n\n        // setup array to store wires\n        joint.wires = new Set();\n        joint.bulbs = new Set();\n    }\n}\n",
+          "inlineCode": "// setup in first frame\n\nif (runtimeScene.getTimeManager().isFirstFrame()) {\n    //gdjs.wires = []; // setup wires stored by each joint\n\n    // insert joints at corners between wires\n    let lines = [ runtimeScene.getObjects('Line')[0] ];\n    let i = 2;\n    for (; i <= 30; i += 1) {\n        lines.push( runtimeScene.getObjects('Line' + i)[0] );\n    }\n\n    let zorder = 502;\n    // insert joints in most spots except the ending column\n    lines.forEach((line, index) => {\n        let joint = runtimeScene.createObject('Joint');\n        const lheight = line.getHeight();\n        const jwidth = joint.getWidth(); const jheight = joint.getHeight();\n        joint.setZOrder(zorder);\n        joint.setX(line.getX() - jwidth / 2 - 1); joint.setY(line.getY() - 2);\n\n        // setup to store wires, bulbs\n        joint.wires = new Set();\n        joint.bulbs = new Set();\n    });\n\n    // insert joints at ending column\n    i = 5;\n    for (; i <= 30; i += 5) {\n        let line = runtimeScene.getObjects('Line' + i)[0];\n\n        let joint = runtimeScene.createObject('Joint');\n        const lwidth = line.getWidth(); const lheight = line.getHeight();\n        const jwidth = joint.getWidth(); const jheight = joint.getHeight();\n        joint.setZOrder(zorder);\n        joint.setX(line.getX() + jwidth / 2 - 1); joint.setY(line.getY() - 2);\n\n        // setup array to store wires\n        joint.wires = new Set();\n        joint.bulbs = new Set();\n    }\n\n    // insert halos\n    let bulbs = runtimeScene.getObjects('Lightbulb');\n    bulbs.forEach((bulb, index) => {\n        let halo = runtimeScene.createObject('Halo');\n        halo.setX(bulb.getX()); halo.setY(bulb.getY());\n        halo.setZOrder(211);\n\n        bulb.halo = halo;\n    });\n}\n",
           "parameterObjects": "",
           "useStrict": true
         },
@@ -16973,7 +17031,7 @@
           "disabled": false,
           "folded": false,
           "type": "BuiltinCommonInstructions::JsCode",
-          "inlineCode": "\r\n// circuit solving using nodal analysis\r\n\r\nconst doDebug = true; // debug stuff for when testing\r\n\r\nif (runtimeScene.getTimeManager().isFirstFrame()) {\r\n    if (!doDebug) {\r\n        let debug = runtimeScene.getObjects('Debug')[0];\r\n        debug.setZOrder(0);\r\n    }\r\n\r\n    return;\r\n}\r\nclearDebug();\r\n\r\n// represents a circuit node\r\nclass Node {\r\n    constructor() {\r\n        this.terminalJoints = new Set();\r\n        this.jointsI = new Set();\r\n        this.adjLoads = new Set();\r\n    }\r\n}\r\n\r\nlet batteries = runtimeScene.getObjects('Battery');\r\nlet battery = batteries[0];\r\nlet joints = runtimeScene.getObjects('Joint');\r\nlet bulbs = runtimeScene.getObjects('Lightbulb');\r\n\r\nlet nodes = new Set();\r\nlet loads = new Set();\r\n\r\n// check if any joints collided with battery, otherwise do nothing\r\nif (battery.joints.size == 0) {\r\n    return;\r\n}\r\nlet bjoints = battery.joints;\r\n\r\n// retrieve one of the joints\r\nlet bjoint0 = -1;\r\nfor (const bjoint of bjoints) {\r\n    bjoint0 = bjoint;\r\n    break;\r\n}\r\n\r\njoints.forEach((joint, index) => {\r\n    joint.setZOrder(505);\r\n});\r\n\r\n// debug: checkng how many joints were cut out when pruning branches\r\nlet prunes = 0;\r\nlet jointCount = 0;\r\n\r\nlet visitedJoints = new Set(); // keep track of currently visited nodes and loads\r\nlet visitedLoads = new Set();\r\n\r\nlet wires = runtimeScene.getObjects('Wire');\r\n// chaining function for collecting nodes, loads, chains\r\nconst chainCollector = function(jointI, prevJointI, prevItem, node) {\r\n    if (jointI == -1) { // invalid case\r\n        return -1;\r\n    }\r\n\r\n    // joint setup\r\n    let joint = joints[jointI];\r\n    visitedJoints.add(jointI);\r\n    joint.prevJointI = prevJointI;\r\n    joint.prevItem = prevItem;\r\n    joint.divs = 0;\r\n    if (node == null) { // create a new node if none exists\r\n        node = new Node();\r\n        node.terminalJoints.add(jointI);\r\n        nodes.add(node);\r\n    }\r\n    // assign node to the joint\r\n    joint.node = node;\r\n    node.jointsI.add(jointI);\r\n    // if previous item is a load, add as adjacent load\r\n    if (prevItem != null && prevItem != -1) {\r\n        let prevName = prevItem.getName();\r\n        if (prevName == 'Lightbulb') {\r\n            //addDebug('PENIS');\r\n            node.adjLoads.add(prevItem);\r\n            prevItem.nodes.add(node);\r\n            //loads.get(prevItem).add(joint.node);\r\n            //loads.get(prevItem).add('ilikeass');\r\n        }\r\n    }\r\n\r\n    //jointCount++;\r\n\r\n    // base case, if other joint of battery found\r\n    if (jointI != bjoint0 && ( bjoints.has(jointI) )) {\r\n        // add this as a terminal\r\n        node.terminalJoints.add(jointI);\r\n        return jointI;\r\n    }\r\n\r\n    let endJointI = -1;\r\n\r\n    // wire crawling for a node\r\n    joint.wires.forEach( (wIndex, index) => {\r\n        let wire = wires[wIndex];\r\n\r\n        // get next joint of wire\r\n        let itemJointsI = wire.joints;\r\n        let nextJoint = -1;\r\n        itemJointsI.forEach((itemJointI, index) => {\r\n            if (itemJointI == jointI) {\r\n                return;\r\n            }\r\n            if (visitedJoints.has(itemJointI)) {\r\n                // two cases, its the previous joint or its a diff joint with a diff node\r\n                if (itemJointI == joint.prevJointI) {\r\n                    return;\r\n                }\r\n                let oldJoint = joints[itemJointI];\r\n                let oldNode = oldJoint.node;\r\n                if (oldNode == joint.node) { // make sure the nodes haven't already been merged\r\n                    return;\r\n                }\r\n                // not previous joint, seperate node exists\r\n                // merge nodes together, replace this one with the pre-existing one\r\n\r\n                node.terminalJoints.forEach((jIndex, index) => { oldNode.terminalJoints.add(jIndex); });\r\n                node.adjLoads.forEach((load, index) => { \r\n                    oldNode.adjLoads.add( load ); \r\n\r\n                    // replace adjacent node inside the load\r\n                    load.nodes.delete(node);\r\n                    load.nodes.add(oldNode);\r\n                }); // may cause errors lateR?\r\n\r\n                // joint updates node removals blah blah\r\n                node.jointsI.forEach((jIndex, index) => {\r\n                    let joint = joints[jIndex];\r\n\r\n                    joint.node = oldNode;\r\n                });\r\n\r\n                nodes.delete(node);\r\n                node = oldNode;\r\n                joint.divs++;\r\n                addDebug('MERGER AHH\\n');\r\n                \r\n                return;\r\n            }\r\n            joint.divs++;\r\n            nextJoint = itemJointI;\r\n        });\r\n\r\n        // should return last joint\r\n        let tailJointI = chainCollector(nextJoint, jointI, wire, node);\r\n        if (tailJointI != -1) {\r\n            endJointI = tailJointI;\r\n        }\r\n    } );\r\n\r\n    //run check on bulbs/resistors\r\n    joint.bulbs.forEach( (bulbI, index) => {\r\n        let bulb = bulbs[bulbI];\r\n        visitedLoads.add(bulb);\r\n\r\n        // add as an adjacent load to the node\r\n        node = joint.node;\r\n        node.adjLoads.add( bulb );\r\n        // add new load with adjacent node\r\n        loads.add(bulb);\r\n        if (!bulb.nodes) {\r\n            bulb.nodes = new Set();\r\n        }\r\n        bulb.nodes.add(node);\r\n        //loads.set(bulb, new Set());\r\n        //loads.get(bulb).add(joint.node);\r\n        // terminates because its a load\r\n        node.terminalJoints.add(jointI);\r\n\r\n        // get next joint of wire\r\n        let itemJointsI = bulb.joints;\r\n        let nextJoint = -1;\r\n        itemJointsI.forEach((itemJointI, index) => {\r\n            if (itemJointI == jointI) {\r\n                return;\r\n            }\r\n            if (visitedJoints.has(itemJointI)) { \r\n                // two cases, its the previous joint or its a diff joint with a diff node\r\n                /*if (itemJointI == joint.prevJointI) {\r\n                    return;\r\n                }*/\r\n                return;\r\n            }\r\n            nextJoint = itemJointI;\r\n            joint.divs++;\r\n        });\r\n\r\n        let tailJointI = chainCollector(nextJoint, jointI, bulb, null);\r\n        if (tailJointI != -1) {\r\n            endJointI = tailJointI;\r\n        }\r\n    } );\r\n\r\n    // if this is a terminal joint and not the battery joint\r\n    if (joint.divs == 0) {\r\n        //addDebug('Joint divs = 0\\n');\r\n        //joint.setZOrder(0);\r\n        // run a traceback\r\n        pruneBranch(jointI);\r\n    }\r\n\r\n    return endJointI;\r\n}\r\nchainCollector(bjoint0, null, null, null);\r\n\r\n// run traceback on an open end to delete entire nodes and loads attached\r\nfunction pruneBranch(jointI) { // WORK FROM HERE YA\r\n    // invalid case, such as no previous joints case\r\n    if (jointI == -1 || jointI == null) {\r\n        return;\r\n    }\r\n\r\n    let joint = joints[jointI];\r\n\r\n    // tell previous joint they just lost one :'(\r\n    if (joint.prevJointI != null && joint.prevJointI != -1) {\r\n        let prevJoint = joints[joint.prevJointI];\r\n        prevJoint.divs--;\r\n    }\r\n\r\n    // if previous item is a load, remove it from the load tracking\r\n    if (joint.prevItem != null) {\r\n        let prevItem = joint.prevItem;\r\n        let itemName = joint.prevItem.getName();\r\n        if (itemName == 'Lightbulb') {\r\n            loads.delete(joint.prevItem);\r\n        }\r\n    }\r\n\r\n    let node = joint.node;\r\n\r\n    node.jointsI.delete(jointI);\r\n    // remove joint as a terminal joint in the node if its in there\r\n    node.terminalJoints.delete(jointI);\r\n    // remove node if its empty\r\n    if (node.terminalJoints.size == 0) {\r\n        nodes.delete(node);\r\n    }\r\n\r\n    prunes++;\r\n}\r\naddDebug('Prune count: ' + prunes);\r\naddDebug('\\nNode count: ' + nodes.size);\r\naddDebug('\\nLoad count: ' + loads.size);\r\n//addDebug('\\nJoint count: ' + jointCount);\r\n\r\n // debug shit on screen\r\nfunction addDebug(out) {\r\n    if (!doDebug) {\r\n        return;\r\n    }\r\n    let text = getDebugVar();\r\n    text.setString(text.getAsString() + out);\r\n}\r\nfunction clearDebug() {\r\n    if (!doDebug) {\r\n        return;\r\n    }\r\n    let text = getDebugVar();\r\n    text.setString(\"\");\r\n}\r\nfunction getDebugVar() {\r\n    if (!doDebug) {\r\n        return;\r\n    }\r\n    let debug = runtimeScene.getObjects('Debug')[0];\r\n    let debugText = debug.getVariables().get('matext');\r\n    return debugText;\r\n}\r\n\r\n// debug for terminal joints of nodes\r\nnodes.forEach((node, nIndex) => {\r\n    node.terminalJoints.forEach((jointI, index) => {\r\n        joints[jointI].setZOrder(0);\r\n    });\r\n});\r\n// joint counting for each load\r\n/*for (let [load, adjNodes] of loads) {\r\n    addDebug('\\nLoad nodes: ' + adjNodes.size);\r\n}*/\r\n/*for (let node of nodes) {\r\n    addDebug('\\nNode loads: ' + node.adjLoads.size);\r\n}\r\nfor (let load of loads) {\r\n    addDebug('\\nNodes in load: ' + load.nodes.size)\r\n}*/\r\n\r\n// delete load entries\r\nvisitedLoads.forEach((load, index) => {\r\n    delete load.nodes;\r\n});\r\n// delete previous joint entries\r\nvisitedJoints.forEach((jIndex, index) => {\r\n    let joint = joints[jIndex];\r\n\r\n    delete joint.prevJointI;\r\n    delete joint.prevItem;\r\n    delete joint.divs;\r\n    delete joint.node;\r\n});\r\n",
+          "inlineCode": "\r\n// circuit solving using nodal analysis\r\n\r\nconst doDebug = true; // debug stuff for when testing\r\n\r\nif (runtimeScene.getTimeManager().isFirstFrame()) {\r\n    if (!doDebug) {\r\n        let debug = runtimeScene.getObjects('Debug')[0];\r\n        debug.setZOrder(0);\r\n    }\r\n\r\n    return;\r\n}\r\nclearDebug();\r\n\r\n// represents a circuit node\r\nclass Node {\r\n    constructor() {\r\n        this.terminalJoints = new Set();\r\n        this.jointsI = new Set();\r\n        this.adjLoads = new Set();\r\n    }\r\n}\r\n\r\nlet batteries = runtimeScene.getObjects('Battery');\r\nlet battery = batteries[0];\r\nlet joints = runtimeScene.getObjects('Joint');\r\nlet bulbs = runtimeScene.getObjects('Lightbulb');\r\n\r\nlet nodes = new Set();\r\nlet loads = new Set();\r\n\r\n// check if any joints collided with battery, otherwise do nothing\r\nif (battery.joints.size == 0) {\r\n    return;\r\n}\r\nlet bjoints = battery.joints;\r\n\r\n// retrieve one of the joints\r\nlet bjoint0 = -1;\r\nfor (const bjoint of bjoints) {\r\n    bjoint0 = bjoint;\r\n    break;\r\n}\r\n\r\njoints.forEach((joint, index) => {\r\n    joint.setZOrder(505);\r\n});\r\n\r\n// debug: checkng how many joints were cut out when pruning branches\r\nlet prunes = 0;\r\nlet jointCount = 0;\r\n\r\nlet visitedJoints = new Set(); // keep track of currently visited nodes and loads\r\nlet visitedLoads = new Set();\r\n\r\nlet wires = runtimeScene.getObjects('Wire');\r\n// chaining function for collecting nodes, loads, chains\r\nconst chainCollector = function(jointI, prevJointI, prevItem, node) {\r\n    if (jointI == -1) { // invalid case\r\n        return -1;\r\n    }\r\n\r\n    // joint setup\r\n    let joint = joints[jointI];\r\n    visitedJoints.add(jointI);\r\n    joint.prevJointI = prevJointI;\r\n    joint.prevItem = prevItem;\r\n    joint.divs = 0;\r\n    if (node == null) { // create a new node if none exists\r\n        node = new Node();\r\n        node.terminalJoints.add(jointI);\r\n        nodes.add(node);\r\n    }\r\n    // assign node to the joint\r\n    joint.node = node;\r\n    node.jointsI.add(jointI);\r\n    // if previous item is a load, add as adjacent load\r\n    if (prevItem != null && prevItem != -1) {\r\n        let prevName = prevItem.getName();\r\n        if (prevName == 'Lightbulb') {\r\n            //addDebug('PENIS');\r\n            node.adjLoads.add(prevItem);\r\n            prevItem.nodes.add(node);\r\n            //loads.get(prevItem).add(joint.node);\r\n            //loads.get(prevItem).add('ilikeass');\r\n        }\r\n    }\r\n\r\n    //jointCount++;\r\n\r\n    // base case, if other joint of battery found\r\n    if (jointI != bjoint0 && ( bjoints.has(jointI) )) {\r\n        // add this as a terminal\r\n        node.terminalJoints.add(jointI);\r\n        return jointI;\r\n    }\r\n\r\n    let endJointI = -1;\r\n\r\n    // wire crawling for a node\r\n    joint.wires.forEach( (wIndex, index) => {\r\n        let wire = wires[wIndex];\r\n\r\n        // get next joint of wire\r\n        let itemJointsI = wire.joints;\r\n        let nextJoint = -1;\r\n        itemJointsI.forEach((itemJointI, index) => {\r\n            if (itemJointI == jointI) {\r\n                return;\r\n            }\r\n            if (visitedJoints.has(itemJointI)) {\r\n                // two cases, its the previous joint or its a diff joint with a diff node\r\n                if (itemJointI == joint.prevJointI) {\r\n                    return;\r\n                }\r\n                let oldJoint = joints[itemJointI];\r\n                let oldNode = oldJoint.node;\r\n                if (oldNode == joint.node) { // make sure the nodes haven't already been merged\r\n                    return;\r\n                }\r\n                // not previous joint, seperate node exists\r\n                // merge nodes together, replace this one with the pre-existing one\r\n\r\n                node.terminalJoints.forEach((jIndex, index) => { oldNode.terminalJoints.add(jIndex); });\r\n                node.adjLoads.forEach((load, index) => { \r\n                    oldNode.adjLoads.add( load ); \r\n\r\n                    // replace adjacent node inside the load\r\n                    load.nodes.delete(node);\r\n                    load.nodes.add(oldNode);\r\n                }); // may cause errors lateR?\r\n\r\n                // joint updates node removals blah blah\r\n                node.jointsI.forEach((jIndex, index) => {\r\n                    let joint = joints[jIndex];\r\n\r\n                    joint.node = oldNode;\r\n                });\r\n\r\n                nodes.delete(node);\r\n                node = oldNode;\r\n                joint.divs++;\r\n                addDebug('MERGER AHH\\n');\r\n                \r\n                return;\r\n            }\r\n            joint.divs++;\r\n            nextJoint = itemJointI;\r\n        });\r\n\r\n        // should return last joint\r\n        let tailJointI = chainCollector(nextJoint, jointI, wire, node);\r\n        if (tailJointI != -1) {\r\n            endJointI = tailJointI;\r\n        }\r\n    } );\r\n\r\n    //run check on bulbs/resistors\r\n    joint.bulbs.forEach( (bulbI, index) => {\r\n        let bulb = bulbs[bulbI];\r\n        visitedLoads.add(bulb);\r\n\r\n        // add as an adjacent load to the node\r\n        node = joint.node;\r\n        node.adjLoads.add( bulb );\r\n        // add new load with adjacent node\r\n        loads.add(bulb);\r\n        if (!bulb.nodes) {\r\n            bulb.nodes = new Set();\r\n        }\r\n        bulb.nodes.add(node);\r\n        //loads.set(bulb, new Set());\r\n        //loads.get(bulb).add(joint.node);\r\n        // terminates because its a load\r\n        node.terminalJoints.add(jointI);\r\n\r\n        // get next joint of wire\r\n        let itemJointsI = bulb.joints;\r\n        let nextJoint = -1;\r\n        itemJointsI.forEach((itemJointI, index) => {\r\n            if (itemJointI == jointI) {\r\n                return;\r\n            }\r\n            if (visitedJoints.has(itemJointI)) { \r\n                // two cases, its the previous joint or its a diff joint with a diff node\r\n                /*if (itemJointI == joint.prevJointI) {\r\n                    return;\r\n                }*/\r\n                return;\r\n            }\r\n            nextJoint = itemJointI;\r\n            joint.divs++;\r\n        });\r\n\r\n        let tailJointI = chainCollector(nextJoint, jointI, bulb, null);\r\n        if (tailJointI != -1) {\r\n            endJointI = tailJointI;\r\n        }\r\n    } );\r\n\r\n    // if this is a terminal joint and not the battery joint\r\n    if (joint.divs == 0) {\r\n        //addDebug('Joint divs = 0\\n');\r\n        //joint.setZOrder(0);\r\n        // run a traceback\r\n        pruneBranch(jointI);\r\n    }\r\n\r\n    return endJointI;\r\n}\r\nchainCollector(bjoint0, null, null, null);\r\n\r\n// run traceback on an open end to delete entire nodes and loads attached\r\nfunction pruneBranch(jointI) { // WORK FROM HERE YA\r\n    // invalid case, such as no previous joints case\r\n    if (jointI == -1 || jointI == null) {\r\n        return;\r\n    }\r\n\r\n    let joint = joints[jointI];\r\n\r\n    // tell previous joint they just lost one :'(\r\n    if (joint.prevJointI != null && joint.prevJointI != -1) {\r\n        let prevJoint = joints[joint.prevJointI];\r\n        prevJoint.divs--;\r\n    }\r\n\r\n    // if previous item is a load, remove it from the load tracking\r\n    if (joint.prevItem != null) {\r\n        let prevItem = joint.prevItem;\r\n        let itemName = joint.prevItem.getName();\r\n        if (itemName == 'Lightbulb') {\r\n            loads.delete(joint.prevItem);\r\n        }\r\n    }\r\n\r\n    let node = joint.node;\r\n\r\n    node.jointsI.delete(jointI);\r\n    // remove joint as a terminal joint in the node if its in there\r\n    node.terminalJoints.delete(jointI);\r\n    // remove node if its empty\r\n    if (node.terminalJoints.size == 0) {\r\n        nodes.delete(node);\r\n    }\r\n\r\n    prunes++;\r\n}\r\naddDebug('Prune count: ' + prunes);\r\naddDebug('\\nNode count: ' + nodes.size);\r\naddDebug('\\nLoad count: ' + loads.size);\r\n//addDebug('\\nJoint count: ' + jointCount);\r\n\r\n // debug shit on screen\r\nfunction addDebug(out) {\r\n    if (!doDebug) {\r\n        return;\r\n    }\r\n    let text = getDebugVar();\r\n    text.setString(text.getAsString() + out);\r\n}\r\nfunction clearDebug() {\r\n    if (!doDebug) {\r\n        return;\r\n    }\r\n    let text = getDebugVar();\r\n    text.setString(\"\");\r\n}\r\nfunction getDebugVar() {\r\n    if (!doDebug) {\r\n        return;\r\n    }\r\n    let debug = runtimeScene.getObjects('Debug')[0];\r\n    let debugText = debug.getVariables().get('matext');\r\n    return debugText;\r\n}\r\n\r\n// debug for terminal joints of nodes\r\nnodes.forEach((node, nIndex) => {\r\n    node.terminalJoints.forEach((jointI, index) => {\r\n        joints[jointI].setZOrder(0);\r\n    });\r\n});\r\n// joint counting for each load\r\n/*for (let [load, adjNodes] of loads) {\r\n    addDebug('\\nLoad nodes: ' + adjNodes.size);\r\n}*/\r\n/*for (let node of nodes) {\r\n    addDebug('\\nNode loads: ' + node.adjLoads.size);\r\n}\r\nfor (let load of loads) {\r\n    addDebug('\\nNodes in load: ' + load.nodes.size)\r\n}*/\r\n\r\n// halo updating\r\nbulbs.forEach((bulb, index) => {\r\n    let halo = bulb.halo;\r\n\r\n    /*// opacity bs\r\n    let yourmom = halo.getVariables().get('brightness');\r\n    yourmom.setNumber(50);*/\r\n\r\n    // center the halo\r\n    let xc = bulb.getX() + bulb.getWidth() / 2;\r\n    let yc = bulb.getY() + bulb.getHeight() / 2;\r\n    let hx = xc - halo.getWidth() / 2;\r\n    let hy = yc - halo.getHeight() / 2;\r\n    halo.setX(hx);\r\n    halo.setY(hy);\r\n});\r\n\r\n// delete load entries\r\nvisitedLoads.forEach((load, index) => {\r\n    delete load.nodes;\r\n});\r\n// delete previous joint entries\r\nvisitedJoints.forEach((jIndex, index) => {\r\n    let joint = joints[jIndex];\r\n\r\n    delete joint.prevJointI;\r\n    delete joint.prevItem;\r\n    delete joint.divs;\r\n    delete joint.node;\r\n});\r\n",
           "parameterObjects": "Line6",
           "useStrict": true
         },
@@ -17006,6 +17064,41 @@
                 "Debug",
                 "=",
                 "Debug.VariableString(matext)"
+              ],
+              "subInstructions": []
+            }
+          ],
+          "events": []
+        },
+        {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::Standard",
+          "conditions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "VarObjet"
+              },
+              "parameters": [
+                "Halo",
+                "brightness",
+                "!=",
+                "-1"
+              ],
+              "subInstructions": []
+            }
+          ],
+          "actions": [
+            {
+              "type": {
+                "inverted": false,
+                "value": "Opacity"
+              },
+              "parameters": [
+                "Halo",
+                "=",
+                "Halo.Variable(brightness)"
               ],
               "subInstructions": []
             }

@@ -1196,6 +1196,15 @@
         "name": "Lighted-horizontal.png",
         "smoothed": true,
         "userAdded": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "Halo-1.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "Halo-1.png",
+        "smoothed": true,
+        "userAdded": false
       }
     ],
     "resourceFolders": []
