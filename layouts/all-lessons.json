@@ -84,8 +84,8 @@
       "name": "Lesson2",
       "persistentUuid": "b8a2f79a-9fb9-4740-81f4-af2a510193d3",
       "width": 0,
-      "x": 156,
-      "y": 200,
+      "x": 122,
+      "y": 202,
       "zOrder": 6,
       "numberProperties": [],
       "stringProperties": [],
@@ -266,38 +266,6 @@
       "numberProperties": [],
       "stringProperties": [],
       "initialVariables": []
-    },
-    {
-      "angle": 0,
-      "customSize": false,
-      "height": 0,
-      "layer": "",
-      "locked": false,
-      "name": "LessonOutline",
-      "persistentUuid": "11ea8fe3-a602-4700-b40c-bc88c7345528",
-      "width": 0,
-      "x": 434,
-      "y": 180,
-      "zOrder": 19,
-      "numberProperties": [],
-      "stringProperties": [],
-      "initialVariables": []
-    },
-    {
-      "angle": 0,
-      "customSize": false,
-      "height": 0,
-      "layer": "",
-      "locked": false,
-      "name": "Lesson7",
-      "persistentUuid": "d0aa2eed-b6c4-411f-880b-17aeb3d6a676",
-      "width": 0,
-      "x": 508,
-      "y": 200,
-      "zOrder": 20,
-      "numberProperties": [],
-      "stringProperties": [],
-      "initialVariables": []
     }
   ],
   "objects": [
@@ -369,7 +337,7 @@
       "underlined": false,
       "variables": [],
       "behaviors": [],
-      "string": "L 2 - Measurement",
+      "string": "L 2 - Electricity Generation",
       "font": "Quicksand-Medium.ttf",
       "characterSize": 20,
       "color": {
@@ -712,7 +680,7 @@
           },
           "parameters": [
             "",
-            "\"Lesson 2 - Measurement\"",
+            "\"Lesson 2 and a half - Generators\"",
             ""
           ],
           "subInstructions": []
@@ -896,7 +864,7 @@
           },
           "parameters": [
             "",
-            "\"Lesson 5 - Circuits\"",
+            "\"Lesson 6 - Parallel\"",
             ""
           ],
           "subInstructions": []

@@ -155,7 +155,7 @@
       "variables": [],
       "behaviors": [],
       "content": {
-        "text": "The difference between parallel and series circuits lays its use, for example, series circuits are used inside of freezers, refrigerators and water heaters. While we use parallel circuits for wiring in buildings, blow dryers, or anything that needs a wall outlet.",
+        "text": "The difference between parallel and series circuits determines its use, for example, series circuits are used inside of freezers, refrigerators and water heaters. While we use parallel circuits for wiring in buildings, blow dryers, or anything that needs a wall outlet.",
         "opacity": 255,
         "fontSize": 30,
         "visible": true,
