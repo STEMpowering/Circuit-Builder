@@ -22,7 +22,7 @@
     "gridWidth": 32,
     "snap": true,
     "windowMask": false,
-    "zoomFactor": 0.94
+    "zoomFactor": 0.9196
   },
   "objectsGroups": [],
   "variables": [],
@@ -99,9 +99,9 @@
       "locked": false,
       "name": "Text",
       "persistentUuid": "7603badd-e631-489f-a127-2e90ec19e8b5",
-      "width": 331,
-      "x": 430,
-      "y": 133,
+      "width": 341,
+      "x": 427,
+      "y": 125,
       "zOrder": 7,
       "numberProperties": [],
       "stringProperties": [],

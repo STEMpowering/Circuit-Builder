@@ -17218,8 +17218,8 @@
           "name": "Lesson2",
           "persistentUuid": "b8a2f79a-9fb9-4740-81f4-af2a510193d3",
           "width": 0,
-          "x": 156,
-          "y": 200,
+          "x": 122,
+          "y": 202,
           "zOrder": 6,
           "numberProperties": [],
           "stringProperties": [],
@@ -17400,38 +17400,6 @@
           "numberProperties": [],
           "stringProperties": [],
           "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": false,
-          "height": 0,
-          "layer": "",
-          "locked": false,
-          "name": "LessonOutline",
-          "persistentUuid": "11ea8fe3-a602-4700-b40c-bc88c7345528",
-          "width": 0,
-          "x": 434,
-          "y": 180,
-          "zOrder": 19,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
-        },
-        {
-          "angle": 0,
-          "customSize": false,
-          "height": 0,
-          "layer": "",
-          "locked": false,
-          "name": "Lesson7",
-          "persistentUuid": "d0aa2eed-b6c4-411f-880b-17aeb3d6a676",
-          "width": 0,
-          "x": 508,
-          "y": 200,
-          "zOrder": 20,
-          "numberProperties": [],
-          "stringProperties": [],
-          "initialVariables": []
         }
       ],
       "objects": [
@@ -17503,7 +17471,7 @@
           "underlined": false,
           "variables": [],
           "behaviors": [],
-          "string": "L 2 - Measurement",
+          "string": "L 2 - Electricity Generation",
           "font": "Quicksand-Medium.ttf",
           "characterSize": 20,
           "color": {
@@ -17846,7 +17814,7 @@
               },
               "parameters": [
                 "",
-                "\"Lesson 2 - Measurement\"",
+                "\"Lesson 2 and a half - Generators\"",
                 ""
               ],
               "subInstructions": []
@@ -18030,7 +17998,7 @@
               },
               "parameters": [
                 "",
-                "\"Lesson 5 - Circuits\"",
+                "\"Lesson 6 - Parallel\"",
                 ""
               ],
               "subInstructions": []
@@ -25036,7 +25004,7 @@
         "gridWidth": 32,
         "snap": true,
         "windowMask": false,
-        "zoomFactor": 0.94
+        "zoomFactor": 0.9196
       },
       "objectsGroups": [],
       "variables": [],
@@ -25113,9 +25081,9 @@
           "locked": false,
           "name": "Text",
           "persistentUuid": "7603badd-e631-489f-a127-2e90ec19e8b5",
-          "width": 331,
-          "x": 430,
-          "y": 133,
+          "width": 341,
+          "x": 427,
+          "y": 125,
           "zOrder": 7,
           "numberProperties": [],
           "stringProperties": [],
@@ -89888,7 +89856,7 @@
               },
               "parameters": [
                 "",
-                "\"All Lessons\"",
+                "\"Lesson 6 - Series vs. Parallel Circuit\"",
                 ""
               ],
               "subInstructions": []
@@ -95755,7 +95723,7 @@
               },
               "parameters": [
                 "",
-                "\"All Lessons\"",
+                "\"Lesson 6 - Series vs. Parallel Circuit\"",
                 ""
               ],
               "subInstructions": []
@@ -96029,7 +95997,7 @@
           "variables": [],
           "behaviors": [],
           "content": {
-            "text": "The difference between parallel and series circuits lays its use, for example, series circuits are used inside of freezers, refrigerators and water heaters. While we use parallel circuits for wiring in buildings, blow dryers, or anything that needs a wall outlet.",
+            "text": "The difference between parallel and series circuits determines its use, for example, series circuits are used inside of freezers, refrigerators and water heaters. While we use parallel circuits for wiring in buildings, blow dryers, or anything that needs a wall outlet.",
             "opacity": 255,
             "fontSize": 30,
             "visible": true,
